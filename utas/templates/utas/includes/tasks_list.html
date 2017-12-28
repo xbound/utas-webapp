@@ -1,0 +1,17 @@
+{% for task in tasks %}
+  <tr>
+    <td>{{ task.task_id }}</td>
+    <td>{{ task.task_name }}</td>
+    <td>{{ task.submition_datetime|date:"D d M Y H:i:s e" }}</td>
+    <td>{{ task.eta|date:"D d M Y H:i:s e" }}</td>
+    <td>{{ task.status }}</td>
+    <td>
+      <a href="{% url 'update_email_task' task.id %}" id="info-task" class="btn btn-link"><i class="fa fa-cog"></i></i></a>
+      <a href="" onclick="return removeTask({{ task.id }});" class="btn remove-task"><i class="fa fa-times"></i></a>
+    </td>
+  </tr>
+{% empty %}
+  <tr>
+    <td class="text-center text-secondary"><h3>No task created yet<h3></td>
+  </tr>
+{% endfor %}

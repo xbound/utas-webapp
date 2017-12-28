@@ -1,0 +1,26 @@
+{% block content %}
+  <form method="post" id="email-task-form" action="">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group{% if field.errors %} is-invalid{% endif %} row">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.errors %}<small class='text-danger' for='id_{{ field.name }}' generated="true">{{ field.errors|join:". " }}</small>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div id="button-group" class="form-group row">
+      <button id="submit-button" class="btn btn-primary" type="submit">
+        {% if header == 'Create email task' %}
+          New
+        {% else %}
+          Save
+        {% endif %}
+      </button>
+      <a role="button" class="btn btn-secondary" href="{% url 'home' %}">Go back</a>
+      {% if header == "Edit email task" %}
+      <a data-csrf="{{csrf_token}}" href="" onclick="return removeTask({{ pk }});" class="btn btn-danger remove-task">REMOVE</a>
+        {% endif %}
+      </div>
+    </form>
+{% endblock %}

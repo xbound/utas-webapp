@@ -1,0 +1,25 @@
+{% extends 'utas/extends/template.html' %}
+{% load static %}
+{% block title %}{{ header }}{% endblock %}
+{% block css%}
+  <link rel="stylesheet" href="{% static 'css/form_page.css'%}" type="text/css"/>
+{% endblock %}
+{% block content %}
+  {% include 'utas/includes/navbar_main.html' %}
+  <div id="email-detail" class="container">
+    {% include 'utas/includes/email_task_detail.html' %}
+  </div>
+  {% include 'utas/includes/modals.html' %}
+{% endblock %}
+{% block script %}
+  <script src="{% static 'js/email_form.js' %}"></script>
+  {% if success %}
+  <script type="text/javascript">
+
+    $(document).ready(function(){
+      $('#info-success').text("{{ info }}");
+      $('#success').modal("show");
+    });
+  </script>
+  {% endif %}
+{% endblock %}

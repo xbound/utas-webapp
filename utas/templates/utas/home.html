@@ -1,0 +1,15 @@
+{% extends 'utas/extends/template.html' %}
+{% load static %}
+{% block title %}{{header}}{% endblock %}
+{% block css%}
+  <link rel="stylesheet" href="{% static 'css/home.css'%}" type="text/css"/>
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+  {% include 'utas/includes/navbar_main.html' %}
+  {% include 'utas/includes/task_table.html' %}
+  {% include 'utas/includes/modals.html' %}
+{% endblock %}
+{% block script %}
+  <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
