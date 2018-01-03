@@ -68,6 +68,10 @@ Now you will be able to create new users in admin page http://127.0.0.1:8000/adm
 Now start application:
 
 	$ ./manage.py runserver
+	
+Start the celery worker:
+
+	$ celery -A utas_webapp worker --loglevel=info
 
 
 Open your browser and go to http://127.0.0.1:8000/login. You will be asked for your username and password. Here you can input username and password of your admin or user that you created in admin page.
