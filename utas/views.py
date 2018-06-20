@@ -5,8 +5,10 @@ from django.views.decorators.http import require_http_methods
 from django.template.loader import render_to_string
 from django.http import HttpResponseServerError,JsonResponse
 from django.shortcuts import render,redirect,get_object_or_404
+
 from utas.forms import EmailTaskForm
 from utas.models import UtasTask, EmailTask
+
 
 @require_http_methods("GET")
 @login_required
