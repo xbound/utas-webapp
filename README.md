@@ -1,7 +1,7 @@
 # Automated email sending webapp
 
 Simple web application for sending email messages at particular date and time using Django 1.11, Celery 4.1.0 and RabbitMQ 3.6.14.
-![demo](recording.gif)
+![demo](https://github.com/xbound/utas-webapp/blob/master/recording.gif)
 
 ## Requirements
 * Python 3.5+ and Django 1.11+.
